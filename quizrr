@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizrr</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><defs><linearGradient id=%22g%22 x1=%220%%22 y1=%220%%22 x2=%22100%%22 y2=%22100%%22><stop offset=%220%%22 stop-color=%22%236366F1%22/><stop offset=%22100%%22 stop-color=%22%23EC4899%22/></linearGradient></defs><rect width=%2240%22 height=%2240%22 rx=%2212%22 fill=%22url(%23g)%22/><path d=%22M15 18c0-2.5 2.5-4.5 5-4.5s5 2 5 4.5c0 2.5-5 3.5-5 6.5%22 stroke=%22white%22 stroke-width=%223.5%22 stroke-linecap=%22round%22 fill=%22none%22/><path d=%22M20 30.5l1.5-1.5-1.5-1.5-1.5 1.5z%22 fill=%22white%22/></svg>" />
+    <link rel="stylesheet" href="style.css" />
+    
+  </head>
+  <body>
+    <div class="quiz-container">
+    <div id="screen-start" class="screen active">
+        
+        <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+          <svg width="200" height="54" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="quizGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#6366F1" />
+                <stop offset="100%" stop-color="#EC4899" />
+              </linearGradient>
+            </defs>
+            <rect width="40" height="40" rx="12" y="4" fill="url(#quizGradient)" />
+            <path d="M15 18C15 15.5 17.5 13.5 20 13.5C22.5 13.5 25 15.5 25 18C25 20.5 20 21.5 20 24.5" stroke="white" stroke-width="3.2" stroke-linecap="round" />
+            <path d="M20 30.5L21.5 29L20 27.5L18.5 29L20 30.5Z" fill="white" />
+            <text x="52" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="800" fill="#F8FAFC" letter-spacing="-0.5">
+              Quiz<tspan fill="url(#quizGradient)">rr</tspan>
+            </text>
+          </svg>
+        </div>
+        <p class="subtitle">
+          10 Random Questions powered by OpenTDB. Test your general knowledge!
+        </p>
+        <button class="btn-action" id="btn-start">Start Quiz</button>
+      </div>
+      <div id="screen-loading" class="screen">
+        <div class="loader">Getting Your Questions ready...</div>
+      </div>
+
+      <div id="screen-quiz" class="screen">
+        <div class="meta-bar">
+          <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 2px 8px; border-radius: 6px; font-size: 0.8rem; border: 1px solid rgba(99, 102, 241, 0.3);">
+            Marks: +3 / 0
+          </span>
+          <span id="category-label">Category</span>
+          
+          <span id="timer-label" style="color: #ef4444; font-weight: bold;">⏱ 15s</span>
+          
+          <span id="counter-label">     1 / 10</span>
+          <span id="category-label"></span> 
+
+          <span id="counter-label"></span>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="progress"></div>
+        </div>
+
+        <div class="question-box" id="question-text"></div>
+
+        <div class="options-grid" id="options-box"></div>
+
+        <button class="btn-action" id="btn-next" style="display: none">
+          Next Question
+        </button>
+      </div>
+
+      <div id="screen-result" class="screen">
+        <div style="text-align: center">
+          <h1>Quiz Completed!</h1>
+          <p class="subtitle">Here is how you performed:</p>
+          <div class="score-display" id="final-score">0 / 10</div>
+
+          <p
+            id="result-msg"
+            class="subtitle"
+            style="margin-top: 15px; font-weight: bold"
+          ></p>
+        </div>
+        <button class="btn-action" id="btn-restart">Play Again</button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
